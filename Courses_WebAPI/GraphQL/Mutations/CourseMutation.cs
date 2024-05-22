@@ -7,6 +7,7 @@ public class CourseMutation(DataContext context)
 {
     public async Task<CoursesEntity> CreateCourse(CoursesEntity course)
     {
+        course.Id = Guid.NewGuid().ToString();
         context.Courses.Add(course);
         await context.SaveChangesAsync();
         return course;

@@ -14,6 +14,7 @@ public class CourseQuery
     public async Task<CoursesEntity?> GetOneCourses([Service] DataContext context, string id)
     {
 
-       return await context.Courses.FindAsync(id);
+        return await context.Courses.FindAsync(id);
     }
+
 }
