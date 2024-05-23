@@ -7,6 +7,7 @@ public class CourseMutationType : ObjectType<CourseMutation>
 {
     protected override void Configure(IObjectTypeDescriptor<CourseMutation> descriptor)
     {
-        descriptor.Field(f => f.CreateCourse(default));
+        descriptor.Authorize();
+        descriptor.Field(f => f.CreateCourse(default)).Authorize();
     }
 }

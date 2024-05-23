@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-
+﻿using HotChocolate.Authorization;
+using System.ComponentModel.DataAnnotations;
 namespace Courses_WebAPI.Entities;
 
-public class CoursesEntity
+[Authorize]
+public class CoursesEntity 
 {
     [Key]
     public string Id { get; set; } = null!;

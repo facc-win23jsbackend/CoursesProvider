@@ -8,8 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="HotChocolate.AspNetCore" Version="13.9.4" />
+    <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="13.9.4" />
     <PackageReference Include="HotChocolate.AspNetCore.Playground" Version="10.5.5" />
     <PackageReference Include="HotChocolate.Data.EntityFramework" Version="13.9.4" />
+    <PackageReference Include="Keycloak.AuthServices.Authentication" Version="2.4.1" />
+    <PackageReference Include="Keycloak.AuthServices.Common" Version="2.4.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Cosmos" Version="8.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
