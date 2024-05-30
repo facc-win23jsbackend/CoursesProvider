@@ -20,11 +20,8 @@ namespace Courses_WebAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<CoursesEntity>> CreateCourse([FromBody] CoursesEntity course)
         {
-            if (_context.Courses.Any(x => x.Title == course.Title))
-            {
-                return BadRequest("A course with this name already exists");
-            }
 
+            course.Id = Guid.NewGuid().ToString();
             _context.Courses.Add(course);
             await _context.SaveChangesAsync();
             return Ok();

@@ -6,7 +6,7 @@ namespace Courses_WebAPI.Entities;
 public class CoursesEntity 
 {
     [Key]
-    public string Id { get; set; } = null!;
+    public string? Id { get; set; }
     public string? ImageUri { get; set; }
     public string? ImageHeaderUri { get; set; }
     public bool IsBestseller { get; set; }
