@@ -63,5 +63,50 @@ namespace Courses_WebAPI.Controllers
             await _context.SaveChangesAsync();
             return Ok();
         }
+
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateCourse(string id, [FromBody] CoursesEntity updatedCourse)
+        {
+            if (id != updatedCourse.Id)
+            {
+                return BadRequest("Course ID mismatch");
+            }
+
+            var course = await _context.Courses.FindAsync(id);
+            if ( course == null)
+            {
+                return NotFound("Could not find any courses with that id");
+            }
+
+            course.ImageUri = updatedCourse.ImageUri;
+            course.ImageHeaderUri = updatedCourse.ImageHeaderUri;
+            course.IsBestseller = updatedCourse.IsBestseller;
+            course.IsDigital = updatedCourse.IsDigital;
+            course.Categories = updatedCourse.Categories;
+            course.Title = updatedCourse.Title;
+            course.Ingress = updatedCourse.Ingress;
+            course.StarRating = updatedCourse.StarRating;
+            course.Reviews = updatedCourse.Reviews;
+            course.LikesInPercent = updatedCourse.LikesInPercent;
+            course.Likes = updatedCourse.Likes;
+            course.Hours = updatedCourse.Hours;
+            course.Prices = updatedCourse.Prices;
+            course.Authors = updatedCourse.Authors;
+            course.Content = updatedCourse.Content;
+           
+            
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return NotFound("The course does not exists!");
+            }
+
+            return NoContent();
+        }
     }
 }
