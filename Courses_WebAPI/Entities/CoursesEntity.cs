@@ -11,7 +11,7 @@ public class CoursesEntity
     public string? ImageHeaderUri { get; set; }
     public bool IsBestseller { get; set; }
     public bool IsDigital { get; set; }
-    public string[]? Categories { get; set; }
+    public virtual List<string>? Categories { get; set; }
     public string? Title { get; set; }
     public string? Ingress { get; set; }
     public decimal StarRating { get; set; }
