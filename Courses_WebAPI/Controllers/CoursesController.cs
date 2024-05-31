@@ -68,11 +68,6 @@ namespace Courses_WebAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCourse(string id, [FromBody] CoursesEntity updatedCourse)
         {
-            if (id != updatedCourse.Id)
-            {
-                return BadRequest("Course ID mismatch");
-            }
-
             var course = await _context.Courses.FindAsync(id);
             if ( course == null)
             {
