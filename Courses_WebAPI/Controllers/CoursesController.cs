@@ -68,6 +68,8 @@ namespace Courses_WebAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCourse(string id, [FromBody] CoursesEntity updatedCourse)
         {
+
+
             var course = await _context.Courses.FindAsync(id);
             if ( course == null)
             {
@@ -89,6 +91,10 @@ namespace Courses_WebAPI.Controllers
             course.Prices = updatedCourse.Prices;
             course.Authors = updatedCourse.Authors;
             course.Content = updatedCourse.Content;
+            course.Content.Includes = updatedCourse.Content.Includes;
+            course.Content.Learn = updatedCourse.Content.Learn;
+
+            
            
             
 
